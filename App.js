@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect ,useNavigation} from 'react';
 import {  StyleSheet, Text, View, Dimensions ,Button,Image} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -11,7 +11,8 @@ import { Alert, Modal,
 } from 'react-native';
 import Markerss from './components/MAaker2';
 import Markers from './components/Marker';
-function HomeScreen() {
+import Detail from './components/Detail';
+function HomeScreen({ navigation }) {
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
   const [latitude, setlatitude] = useState(0);
@@ -91,7 +92,7 @@ axios.post(`http://192.168.4.20:8888/emergency/v1/`,{lon:location?.coords?.longi
       borderRadius:50,
         zIndex:100,
       }}>
-      <Button  onPress={mylocation} title="Hello"><Image source={require('./assets/sos.png')} style={{maxHeight:50,maxWidth:50}} ></Image></Button></View>
+      <Button  onPress={mylocation} title="ME"><Image source={require('./assets/sos.png')} style={{maxHeight:50,maxWidth:50}} ></Image></Button></View>
     )
   }
 const mylocation=()=>{
@@ -105,6 +106,16 @@ const mylocation=()=>{
 
        <Buttonsos></Buttonsos>
       <ButtonMain></ButtonMain>
+     
+       <View style={{position: 'absolute',
+      bottom:100,
+      padding:0.5,
+      right:20,
+      backgroundColor:"white",
+      borderRadius:50,
+        zIndex:100,
+      }}>
+      <Button  onPress={() => navigation.push('Details')} title="Detail"></Button></View>
         {location?
         <MapView style={styles.map} region={{
           longitude:longitude,
@@ -118,7 +129,7 @@ const mylocation=()=>{
         <Marker coordinate={{
           longitude:location.coords.longitude,
           latitude:location.coords.latitude
-        }} title="RABI"   style={{flex:1,justifyContent:"center",maxHeight:50,maxWidth:50}}/></MapView>
+        }} title="RABI" image={require('./assets/me.png')}  style={{flex:1,justifyContent:"center",maxHeight:50,maxWidth:50}}/></MapView>
         :<Text>Loading...</Text>}      
     </View>
   );
@@ -126,7 +137,7 @@ const mylocation=()=>{
 function DetailsScreen() {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Details Screen</Text>
+      <Detail></Detail>
     </View>
   );
 }

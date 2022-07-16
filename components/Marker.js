@@ -13,7 +13,8 @@ API.map((res)=>(
             latitude:res.lat,
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
-          }} title={res.title} image={require('../assets/ambulance.png')}  style={{flex:1,justifyContent:"center",maxHeight:20,maxWidth:20}}/>
+          }} title={res.title} 
+           image={res.book?require('../assets/icon-green.png'):require('../assets/ambulance.png')}  style={{flex:1,justifyContent:"center",maxHeight:20,maxWidth:20}}/>
     
     ))
 )
