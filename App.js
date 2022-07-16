@@ -92,11 +92,11 @@ axios.post(`http://192.168.4.20:8888/emergency/v1/`,{lon:location?.coords?.longi
       borderRadius:50,
         zIndex:100,
       }}>
-      <Button  onPress={mylocation} title="ME"><Image source={require('./assets/sos.png')} style={{maxHeight:50,maxWidth:50}} ></Image></Button></View>
+      <Button  onPress={mylocation} title="ME"></Button></View>
     )
   }
 const mylocation=()=>{
-  alert("Hello")
+
   setlongitude(location.coords.longitude);
   setlatitude(location.coords.latitude);
 }
