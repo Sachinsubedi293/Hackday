@@ -74,7 +74,7 @@ function HomeScreen({ navigation }) {
           </View>
         </View>
       </Modal>
-      <Pressable title='Hello' onPress={() => setModalVisible(true)}><Image source={require('./assets/favicon.png')} style={{maxHeight:50,maxWidth:50}}></Image></Pressable></View>
+      <Pressable title='Hello' onPress={() => setModalVisible(true)}><Image source={require('./assets/sos.png')} style={{maxHeight:50,maxWidth:50}}></Image></Pressable></View>
     )
   }
   function Sendlocation(){
@@ -129,7 +129,7 @@ const mylocation=()=>{
         <Marker coordinate={{
           longitude:location.coords.longitude,
           latitude:location.coords.latitude
-        }} title="RABI" image={require('./assets/me.png')}  style={{flex:1,justifyContent:"center",maxHeight:50,maxWidth:50}}/></MapView>
+        }} title="RABI" image={require('./assets/b.png')}  style={{flex:1,justifyContent:"center",maxHeight:50,maxWidth:50}}/></MapView>
         :<Text>Loading...</Text>}      
     </View>
   );

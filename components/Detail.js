@@ -9,7 +9,7 @@ const Detail = ({navigation}) => {
 
   return ( 
     API.map(res=>(
-        <View style={{padding:10, top:0}}>
+        <View style={{padding:10, top:0}} key={res.id+"Api"}>
             <Pressable onPress={()=>{alert("Future")}}>
             <Text>{res.id} {res.lon} {res.lat}</Text></Pressable>
         </View>
